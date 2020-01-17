@@ -31,15 +31,18 @@ export default class Server {
 
 
             // Connect client
-            socket.connectClient(client);
+            socket.connectClient(client, this.io);
+
             //Config user
             socket.configUser(client, this.io);
+            //get users
+            socket.getUsers(client, this.io);
 
             //Messages
             socket.messageListener(client, this.io);
 
             //disconnect
-            socket.disconnect(client);
+            socket.disconnect(client, this.io);
 
         });
     }
